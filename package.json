@@ -1,0 +1,7 @@
+{
+  "name": "canopy-evidence", "version": "0.1.0", "private": true, "type": "module",
+  "description": "Replayable evidence for shared events in wearable sensor networks",
+  "engines": {"node": ">=22"},
+  "scripts": {"start": "node server.mjs", "test": "node --test tests/*.test.mjs", "benchmark": "node scripts/benchmark.mjs", "demo": "node cli.mjs simulate shared --out demo.json"},
+  "license": "MIT"
+}

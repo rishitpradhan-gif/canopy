@@ -1,0 +1,118 @@
+{
+  "engine": "0.1.0",
+  "created_at": "2026-11-10T02:46:33.531Z",
+  "node": "v22.17.1",
+  "platform": "darwin x64",
+  "cpu": "Apple M5",
+  "full": true,
+  "results": [
+    {
+      "scenario": "shared",
+      "seeds": 100,
+      "tp": 600,
+      "fp": 0,
+      "fn": 0,
+      "flagged_windows": 600,
+      "median_ms": 3.0615000000000236,
+      "p95_ms": 11.253582999999992,
+      "interpretation": "Scored synthetic temporal-cell windows."
+    },
+    {
+      "scenario": "workload",
+      "seeds": 100,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "flagged_windows": 0,
+      "median_ms": 2.5211250000000973,
+      "p95_ms": 3.0059589999999616,
+      "interpretation": "Scored synthetic temporal-cell windows."
+    },
+    {
+      "scenario": "sensor",
+      "seeds": 100,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "flagged_windows": 0,
+      "median_ms": 2.4632500000000164,
+      "p95_ms": 3.1579170000001113,
+      "interpretation": "Scored synthetic temporal-cell windows."
+    },
+    {
+      "scenario": "null",
+      "seeds": 100,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "flagged_windows": 0,
+      "median_ms": 2.422290999999859,
+      "p95_ms": 2.6791249999998854,
+      "interpretation": "Scored synthetic temporal-cell windows."
+    },
+    {
+      "scenario": "dropout",
+      "seeds": 100,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "flagged_windows": 0,
+      "median_ms": 2.2382920000000013,
+      "p95_ms": 2.8008330000000115,
+      "interpretation": "Transport stress; no injected physiological event."
+    },
+    {
+      "scenario": "boundary",
+      "seeds": 100,
+      "tp": null,
+      "fp": null,
+      "fn": null,
+      "flagged_windows": 200,
+      "median_ms": 2.441000000000031,
+      "p95_ms": 2.769209000000046,
+      "interpretation": "Boundary stress: true injected changes are split across cells; no scored ground truth."
+    },
+    {
+      "scenario": "drift",
+      "seeds": 100,
+      "tp": 0,
+      "fp": 1600,
+      "fn": 0,
+      "flagged_windows": 1600,
+      "median_ms": 2.4329579999998714,
+      "p95_ms": 2.7053750000000036,
+      "interpretation": "Adversarial confounder: expected false environmental attribution if shared changes are incorrectly treated as causal."
+    }
+  ],
+  "scales": [
+    {
+      "devices": 12,
+      "samples": 6000,
+      "elapsed_ms": 11.162458000000242,
+      "heap_used_mb": 19.272415161132812,
+      "shared_windows": 6
+    },
+    {
+      "devices": 100,
+      "samples": 50000,
+      "elapsed_ms": 120.01904100000002,
+      "heap_used_mb": 54.46892547607422,
+      "shared_windows": 6
+    },
+    {
+      "devices": 500,
+      "samples": 250000,
+      "elapsed_ms": 586.0969580000001,
+      "heap_used_mb": 206.8554916381836,
+      "shared_windows": 6
+    },
+    {
+      "devices": 1000,
+      "samples": 500000,
+      "elapsed_ms": 1348.8938329999996,
+      "heap_used_mb": 267.4200439453125,
+      "shared_windows": 6
+    }
+  ],
+  "scope": "Single-process synthetic benchmark. Heap is process snapshot, not isolated peak. No physical-device, BLE, clinical, or distributed-ingestion validation."
+}

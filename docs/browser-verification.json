@@ -1,0 +1,18 @@
+{
+  "verified_at": "2026-11-10T02:46:46.709Z",
+  "browser": "Google Chrome / Playwright",
+  "flows": [
+    "baseline replay",
+    "single witness removal",
+    "individual trace",
+    "all seven scenarios",
+    "capsule export/import",
+    "invalid input rejection",
+    "playback",
+    "field guide",
+    "390px mobile overflow"
+  ],
+  "uncaught_errors": [],
+  "network_uploads": 0,
+  "external_requests": 0
+}
