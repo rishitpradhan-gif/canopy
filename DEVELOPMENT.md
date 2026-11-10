@@ -10,13 +10,13 @@ The owner requested a daily development run. A native app heartbeat named **Deve
 npm run automate
 ```
 
-This runs 18 core/API/challenge tests plus 140 seeded recordings × nine analyses. Reports include input source hashes, settings, seeds, outcomes, and explicit regression gates. Failed gates must block release; preserve the failure report. Run the Chrome test when browser-facing behavior changes. A preview on port 4435 is needed for that test; stop owned previews afterward.
+On this review branch this discovers all test modules (23 tests currently), runs 140 seeded recordings × nine analyses, then writes a separate 100-recording nonlinear stress evaluation. Reports include source hashes, settings, seeds, outcomes, and explicit clean-fixture regression gates. Failed gates must block release; preserve the failure report. The stress results are diagnostic, without a performance pass threshold. Run the Chrome test when browser-facing behavior changes. A preview on port 4435 is needed for that test; stop owned previews afterward.
 
 The optional scientific environment can be recreated with Python 3.12+ in a disposable environment, installing `research/requirements-lock.txt`, then running `python research/compare.py`. Do not add those packages to the zero-dependency runtime. Four library stacks are exercised, not external language models. `docs/stack-comparison.json` describes the incompatible objectives and limits of their exploratory scores.
 
 ## Next bounded work
 
-1. Independent nonlinear/lagged/autocorrelated simulation generator. The current sensitivity suite uses new seeds but retains the same narrow generator assumptions.
+1. Review `research/stress-generator.mjs` and `docs/independent-stress.md`: a separate nonlinear/lagged/AR-noise generator and 100-recording evaluation now expose missed events and nuisance flags. Preserve these cases before testing detector changes. This scientific change is on a review branch and has not been deployed. The older sensitivity suite retains the original narrow generator.
 2. Define spatial-temporal event matching and abstention/coverage metrics before comparing group-level methods. Current Python metrics are pointwise and are not a leaderboard for Canopy.
 3. Test an overlapping-neighborhood alternative on held-out cell-boundary cases without weakening false-alarm checks.
 4. Add a device-export adapter only after the owner identifies an actual device/data format. No physical hardware is connected yet.

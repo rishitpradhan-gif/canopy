@@ -1,0 +1,11 @@
+import {mkdir,readFile,writeFile} from 'node:fs/promises';import {createHash} from 'node:crypto';
+import {analyze,evaluate,VERSION} from '../dist/core.mjs';import {stressRecording,physicalWindowTruth,STRESS_CASES} from '../research/stress-generator.mjs';
+const records=[];for(const scenario of STRESS_CASES)for(let seed=1001;seed<=1020;seed++){
+  const d=stressRecording({scenario,seed}),truth=physicalWindowTruth(d),r=analyze(d);
+  const post=r.windows,eligible=post.filter(w=>w.eligible>=r.settings.min_peers);
+  records.push({scenario,seed,samples:d.samples.length,truth_windows:truth.length,...evaluate(r,truth),reported_windows:post.length,eligible_windows:eligible.length,eligible_fraction_among_reported:eligible.length/post.length,extrapolated_readings:r.quality.extrapolated,missing_packets:r.quality.missing_packets});
+}
+const summary=STRESS_CASES.map(scenario=>{const xs=records.filter(r=>r.scenario===scenario);return {scenario,recordings:xs.length,tp:xs.reduce((s,r)=>s+r.tp,0),fp:xs.reduce((s,r)=>s+r.fp,0),fn:xs.reduce((s,r)=>s+r.fn,0),recordings_with_flags_without_physical_truth:xs.filter(r=>r.fp>0).length};});
+const source_hashes={};for(const f of ['dist/core.mjs','research/stress-generator.mjs','scripts/stress-evaluate.mjs'])source_hashes[f]=createHash('sha256').update(await readFile(f)).digest('hex');
+const out={schema:'canopy-independent-stress/1',engine:VERSION,created_at:new Date().toISOString(),node:process.version,settings:analyze(stressRecording()).settings,source_hashes,seed_range:[1001,1020],summary,records,scope:'Synthetic out-of-model stress test. Exact default 30 s / 50 m temporal-cell matching, no tolerance; truth uses counterfactual device event contribution >=8 bpm in at least half the window readings for >=60% of the four devices. False positives here mean flags without this constructed physical contribution, not false detections of any measured change. Eligibility fraction excludes completely absent windows and is not global coverage. No parameter tuning, hardware/clinical validation, or assertion of independent scientific review.'};
+await mkdir('docs',{recursive:true});await writeFile('docs/independent-stress-results.json',JSON.stringify(out,null,2)+'\n');console.log(JSON.stringify(summary,null,2));
