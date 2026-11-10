@@ -1,0 +1,873 @@
+{
+  "schema": "canopy-stack-review/1",
+  "created_at": "2026-11-10T03:17:51Z",
+  "python": "3.12.14",
+  "versions": {
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "pyod": "3.6.7",
+    "river": "0.26.1",
+    "ruptures": "1.1.10"
+  },
+  "recordings": 15,
+  "results": [
+    {
+      "scenario": "shared",
+      "seed": 201,
+      "method": "residual-threshold",
+      "tp": 144,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.05254200004856102
+    },
+    {
+      "scenario": "shared",
+      "seed": 201,
+      "method": "sklearn-IsolationForest",
+      "tp": 144,
+      "fp": 83,
+      "fn": 0,
+      "elapsed_ms": 47.08908300017356
+    },
+    {
+      "scenario": "shared",
+      "seed": 201,
+      "method": "sklearn-OneClassSVM",
+      "tp": 144,
+      "fp": 53,
+      "fn": 0,
+      "elapsed_ms": 1.0563750001892913
+    },
+    {
+      "scenario": "shared",
+      "seed": 201,
+      "method": "PyOD-ECOD",
+      "tp": 32,
+      "fp": 35,
+      "fn": 112,
+      "elapsed_ms": 128.77195799956098
+    },
+    {
+      "scenario": "shared",
+      "seed": 201,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 144,
+      "fp": 37,
+      "fn": 0,
+      "elapsed_ms": 9.462458001507912,
+      "baseline_score_threshold": 0.6053427419354839
+    },
+    {
+      "scenario": "shared",
+      "seed": 202,
+      "method": "residual-threshold",
+      "tp": 144,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.015040999642224051
+    },
+    {
+      "scenario": "shared",
+      "seed": 202,
+      "method": "sklearn-IsolationForest",
+      "tp": 144,
+      "fp": 111,
+      "fn": 0,
+      "elapsed_ms": 44.46908300087671
+    },
+    {
+      "scenario": "shared",
+      "seed": 202,
+      "method": "sklearn-OneClassSVM",
+      "tp": 144,
+      "fp": 90,
+      "fn": 0,
+      "elapsed_ms": 0.9921249984472524
+    },
+    {
+      "scenario": "shared",
+      "seed": 202,
+      "method": "PyOD-ECOD",
+      "tp": 35,
+      "fp": 50,
+      "fn": 109,
+      "elapsed_ms": 1.1707499998010462
+    },
+    {
+      "scenario": "shared",
+      "seed": 202,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 144,
+      "fp": 50,
+      "fn": 0,
+      "elapsed_ms": 7.41800000105286,
+      "baseline_score_threshold": 0.5982862903225806
+    },
+    {
+      "scenario": "shared",
+      "seed": 203,
+      "method": "residual-threshold",
+      "tp": 144,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.013999999282532372
+    },
+    {
+      "scenario": "shared",
+      "seed": 203,
+      "method": "sklearn-IsolationForest",
+      "tp": 144,
+      "fp": 112,
+      "fn": 0,
+      "elapsed_ms": 42.61070799839217
+    },
+    {
+      "scenario": "shared",
+      "seed": 203,
+      "method": "sklearn-OneClassSVM",
+      "tp": 144,
+      "fp": 102,
+      "fn": 0,
+      "elapsed_ms": 1.0646669998095604
+    },
+    {
+      "scenario": "shared",
+      "seed": 203,
+      "method": "PyOD-ECOD",
+      "tp": 41,
+      "fp": 68,
+      "fn": 103,
+      "elapsed_ms": 1.1826249992736848
+    },
+    {
+      "scenario": "shared",
+      "seed": 203,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 144,
+      "fp": 26,
+      "fn": 0,
+      "elapsed_ms": 7.408624998788582,
+      "baseline_score_threshold": 0.6140120967741935
+    },
+    {
+      "scenario": "workload",
+      "seed": 201,
+      "method": "residual-threshold",
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.012667000191868283
+    },
+    {
+      "scenario": "workload",
+      "seed": 201,
+      "method": "sklearn-IsolationForest",
+      "tp": 0,
+      "fp": 110,
+      "fn": 0,
+      "elapsed_ms": 43.036500001107925
+    },
+    {
+      "scenario": "workload",
+      "seed": 201,
+      "method": "sklearn-OneClassSVM",
+      "tp": 0,
+      "fp": 69,
+      "fn": 0,
+      "elapsed_ms": 0.969624999925145
+    },
+    {
+      "scenario": "workload",
+      "seed": 201,
+      "method": "PyOD-ECOD",
+      "tp": 0,
+      "fp": 67,
+      "fn": 0,
+      "elapsed_ms": 1.2224160000187112
+    },
+    {
+      "scenario": "workload",
+      "seed": 201,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 0,
+      "fp": 102,
+      "fn": 0,
+      "elapsed_ms": 7.626417000210495,
+      "baseline_score_threshold": 0.6053427419354839
+    },
+    {
+      "scenario": "workload",
+      "seed": 202,
+      "method": "residual-threshold",
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.013459000911097974
+    },
+    {
+      "scenario": "workload",
+      "seed": 202,
+      "method": "sklearn-IsolationForest",
+      "tp": 0,
+      "fp": 125,
+      "fn": 0,
+      "elapsed_ms": 42.47008300080779
+    },
+    {
+      "scenario": "workload",
+      "seed": 202,
+      "method": "sklearn-OneClassSVM",
+      "tp": 0,
+      "fp": 101,
+      "fn": 0,
+      "elapsed_ms": 0.9945420006260974
+    },
+    {
+      "scenario": "workload",
+      "seed": 202,
+      "method": "PyOD-ECOD",
+      "tp": 0,
+      "fp": 75,
+      "fn": 0,
+      "elapsed_ms": 1.1648750005406328
+    },
+    {
+      "scenario": "workload",
+      "seed": 202,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 0,
+      "fp": 92,
+      "fn": 0,
+      "elapsed_ms": 7.665332999749808,
+      "baseline_score_threshold": 0.5982862903225806
+    },
+    {
+      "scenario": "workload",
+      "seed": 203,
+      "method": "residual-threshold",
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.01300000076298602
+    },
+    {
+      "scenario": "workload",
+      "seed": 203,
+      "method": "sklearn-IsolationForest",
+      "tp": 0,
+      "fp": 111,
+      "fn": 0,
+      "elapsed_ms": 42.200875001071836
+    },
+    {
+      "scenario": "workload",
+      "seed": 203,
+      "method": "sklearn-OneClassSVM",
+      "tp": 0,
+      "fp": 92,
+      "fn": 0,
+      "elapsed_ms": 1.0498749998077983
+    },
+    {
+      "scenario": "workload",
+      "seed": 203,
+      "method": "PyOD-ECOD",
+      "tp": 0,
+      "fp": 82,
+      "fn": 0,
+      "elapsed_ms": 1.1336669995216653
+    },
+    {
+      "scenario": "workload",
+      "seed": 203,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 0,
+      "fp": 66,
+      "fn": 0,
+      "elapsed_ms": 7.311833000130719,
+      "baseline_score_threshold": 0.6140120967741935
+    },
+    {
+      "scenario": "sensor",
+      "seed": 201,
+      "method": "residual-threshold",
+      "tp": 36,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.015375000657513738
+    },
+    {
+      "scenario": "sensor",
+      "seed": 201,
+      "method": "sklearn-IsolationForest",
+      "tp": 36,
+      "fp": 98,
+      "fn": 0,
+      "elapsed_ms": 40.69425000125193
+    },
+    {
+      "scenario": "sensor",
+      "seed": 201,
+      "method": "sklearn-OneClassSVM",
+      "tp": 36,
+      "fp": 63,
+      "fn": 0,
+      "elapsed_ms": 0.9007909993670182
+    },
+    {
+      "scenario": "sensor",
+      "seed": 201,
+      "method": "PyOD-ECOD",
+      "tp": 24,
+      "fp": 49,
+      "fn": 12,
+      "elapsed_ms": 1.1415419994591502
+    },
+    {
+      "scenario": "sensor",
+      "seed": 201,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 36,
+      "fp": 40,
+      "fn": 0,
+      "elapsed_ms": 7.231625000713393,
+      "baseline_score_threshold": 0.6053427419354839
+    },
+    {
+      "scenario": "sensor",
+      "seed": 202,
+      "method": "residual-threshold",
+      "tp": 36,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.010959000064758584
+    },
+    {
+      "scenario": "sensor",
+      "seed": 202,
+      "method": "sklearn-IsolationForest",
+      "tp": 36,
+      "fp": 122,
+      "fn": 0,
+      "elapsed_ms": 40.82075000042096
+    },
+    {
+      "scenario": "sensor",
+      "seed": 202,
+      "method": "sklearn-OneClassSVM",
+      "tp": 36,
+      "fp": 96,
+      "fn": 0,
+      "elapsed_ms": 0.895499999387539
+    },
+    {
+      "scenario": "sensor",
+      "seed": 202,
+      "method": "PyOD-ECOD",
+      "tp": 23,
+      "fp": 64,
+      "fn": 13,
+      "elapsed_ms": 1.099249999242602
+    },
+    {
+      "scenario": "sensor",
+      "seed": 202,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 36,
+      "fp": 51,
+      "fn": 0,
+      "elapsed_ms": 7.249500000398257,
+      "baseline_score_threshold": 0.5982862903225806
+    },
+    {
+      "scenario": "sensor",
+      "seed": 203,
+      "method": "residual-threshold",
+      "tp": 36,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.012250000509084202
+    },
+    {
+      "scenario": "sensor",
+      "seed": 203,
+      "method": "sklearn-IsolationForest",
+      "tp": 36,
+      "fp": 124,
+      "fn": 0,
+      "elapsed_ms": 40.021208000325714
+    },
+    {
+      "scenario": "sensor",
+      "seed": 203,
+      "method": "sklearn-OneClassSVM",
+      "tp": 36,
+      "fp": 114,
+      "fn": 0,
+      "elapsed_ms": 0.9613749989512144
+    },
+    {
+      "scenario": "sensor",
+      "seed": 203,
+      "method": "PyOD-ECOD",
+      "tp": 25,
+      "fp": 89,
+      "fn": 11,
+      "elapsed_ms": 1.0600000005069887
+    },
+    {
+      "scenario": "sensor",
+      "seed": 203,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 36,
+      "fp": 29,
+      "fn": 0,
+      "elapsed_ms": 7.146583000576356,
+      "baseline_score_threshold": 0.6140120967741935
+    },
+    {
+      "scenario": "null",
+      "seed": 201,
+      "method": "residual-threshold",
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.015125000572879799
+    },
+    {
+      "scenario": "null",
+      "seed": 201,
+      "method": "sklearn-IsolationForest",
+      "tp": 0,
+      "fp": 100,
+      "fn": 0,
+      "elapsed_ms": 42.159124999670894
+    },
+    {
+      "scenario": "null",
+      "seed": 201,
+      "method": "sklearn-OneClassSVM",
+      "tp": 0,
+      "fp": 65,
+      "fn": 0,
+      "elapsed_ms": 0.9208749997924315
+    },
+    {
+      "scenario": "null",
+      "seed": 201,
+      "method": "PyOD-ECOD",
+      "tp": 0,
+      "fp": 65,
+      "fn": 0,
+      "elapsed_ms": 1.1785839997173753
+    },
+    {
+      "scenario": "null",
+      "seed": 201,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 0,
+      "fp": 42,
+      "fn": 0,
+      "elapsed_ms": 7.519499999034451,
+      "baseline_score_threshold": 0.6053427419354839
+    },
+    {
+      "scenario": "null",
+      "seed": 202,
+      "method": "residual-threshold",
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.012542001059046015
+    },
+    {
+      "scenario": "null",
+      "seed": 202,
+      "method": "sklearn-IsolationForest",
+      "tp": 0,
+      "fp": 125,
+      "fn": 0,
+      "elapsed_ms": 41.51658299997507
+    },
+    {
+      "scenario": "null",
+      "seed": 202,
+      "method": "sklearn-OneClassSVM",
+      "tp": 0,
+      "fp": 98,
+      "fn": 0,
+      "elapsed_ms": 0.9324160000687698
+    },
+    {
+      "scenario": "null",
+      "seed": 202,
+      "method": "PyOD-ECOD",
+      "tp": 0,
+      "fp": 86,
+      "fn": 0,
+      "elapsed_ms": 1.1987079997197725
+    },
+    {
+      "scenario": "null",
+      "seed": 202,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 0,
+      "fp": 52,
+      "fn": 0,
+      "elapsed_ms": 7.274291001522215,
+      "baseline_score_threshold": 0.5982862903225806
+    },
+    {
+      "scenario": "null",
+      "seed": 203,
+      "method": "residual-threshold",
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.011249998351559043
+    },
+    {
+      "scenario": "null",
+      "seed": 203,
+      "method": "sklearn-IsolationForest",
+      "tp": 0,
+      "fp": 128,
+      "fn": 0,
+      "elapsed_ms": 40.70204200070293
+    },
+    {
+      "scenario": "null",
+      "seed": 203,
+      "method": "sklearn-OneClassSVM",
+      "tp": 0,
+      "fp": 117,
+      "fn": 0,
+      "elapsed_ms": 0.9859170004347106
+    },
+    {
+      "scenario": "null",
+      "seed": 203,
+      "method": "PyOD-ECOD",
+      "tp": 0,
+      "fp": 102,
+      "fn": 0,
+      "elapsed_ms": 1.1365419995854609
+    },
+    {
+      "scenario": "null",
+      "seed": 203,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 0,
+      "fp": 30,
+      "fn": 0,
+      "elapsed_ms": 7.18179199975566,
+      "baseline_score_threshold": 0.6140120967741935
+    },
+    {
+      "scenario": "drift",
+      "seed": 201,
+      "method": "residual-threshold",
+      "tp": 432,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.012624999726540409
+    },
+    {
+      "scenario": "drift",
+      "seed": 201,
+      "method": "sklearn-IsolationForest",
+      "tp": 432,
+      "fp": 65,
+      "fn": 0,
+      "elapsed_ms": 39.91120799946657
+    },
+    {
+      "scenario": "drift",
+      "seed": 201,
+      "method": "sklearn-OneClassSVM",
+      "tp": 432,
+      "fp": 40,
+      "fn": 0,
+      "elapsed_ms": 0.8942920012486866
+    },
+    {
+      "scenario": "drift",
+      "seed": 201,
+      "method": "PyOD-ECOD",
+      "tp": 43,
+      "fp": 30,
+      "fn": 389,
+      "elapsed_ms": 1.1074169997300487
+    },
+    {
+      "scenario": "drift",
+      "seed": 201,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 432,
+      "fp": 24,
+      "fn": 0,
+      "elapsed_ms": 7.045459000437404,
+      "baseline_score_threshold": 0.6053427419354839
+    },
+    {
+      "scenario": "drift",
+      "seed": 202,
+      "method": "residual-threshold",
+      "tp": 432,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.01462500040361192
+    },
+    {
+      "scenario": "drift",
+      "seed": 202,
+      "method": "sklearn-IsolationForest",
+      "tp": 432,
+      "fp": 77,
+      "fn": 0,
+      "elapsed_ms": 39.09941699930641
+    },
+    {
+      "scenario": "drift",
+      "seed": 202,
+      "method": "sklearn-OneClassSVM",
+      "tp": 432,
+      "fp": 63,
+      "fn": 0,
+      "elapsed_ms": 0.8819170016067801
+    },
+    {
+      "scenario": "drift",
+      "seed": 202,
+      "method": "PyOD-ECOD",
+      "tp": 50,
+      "fp": 39,
+      "fn": 382,
+      "elapsed_ms": 1.06387500090932
+    },
+    {
+      "scenario": "drift",
+      "seed": 202,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 432,
+      "fp": 35,
+      "fn": 0,
+      "elapsed_ms": 7.643499999176129,
+      "baseline_score_threshold": 0.5982862903225806
+    },
+    {
+      "scenario": "drift",
+      "seed": 203,
+      "method": "residual-threshold",
+      "tp": 432,
+      "fp": 0,
+      "fn": 0,
+      "elapsed_ms": 0.012999998943996616
+    },
+    {
+      "scenario": "drift",
+      "seed": 203,
+      "method": "sklearn-IsolationForest",
+      "tp": 432,
+      "fp": 77,
+      "fn": 0,
+      "elapsed_ms": 41.2467080004717
+    },
+    {
+      "scenario": "drift",
+      "seed": 203,
+      "method": "sklearn-OneClassSVM",
+      "tp": 432,
+      "fp": 72,
+      "fn": 0,
+      "elapsed_ms": 1.0307499996997649
+    },
+    {
+      "scenario": "drift",
+      "seed": 203,
+      "method": "PyOD-ECOD",
+      "tp": 58,
+      "fp": 50,
+      "fn": 374,
+      "elapsed_ms": 1.184709000881412
+    },
+    {
+      "scenario": "drift",
+      "seed": 203,
+      "method": "River-HalfSpaceTrees-frozen",
+      "tp": 432,
+      "fp": 19,
+      "fn": 0,
+      "elapsed_ms": 7.2359580008196644,
+      "baseline_score_threshold": 0.6140120967741935
+    }
+  ],
+  "offline_segmentation": [
+    {
+      "scenario": "shared",
+      "seed": 201,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        270,
+        450
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "shared",
+      "seed": 202,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        270,
+        450
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "shared",
+      "seed": 203,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        270,
+        450
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "workload",
+      "seed": 201,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        215,
+        405
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "workload",
+      "seed": 202,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        510,
+        555
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "workload",
+      "seed": 203,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        265,
+        525
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "sensor",
+      "seed": 201,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        270,
+        450
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "sensor",
+      "seed": 202,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        270,
+        445
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "sensor",
+      "seed": 203,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        270,
+        450
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "null",
+      "seed": 201,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        330,
+        560
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "null",
+      "seed": 202,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        510,
+        555
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "null",
+      "seed": 203,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        370,
+        425
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "drift",
+      "seed": 201,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        270,
+        450
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "drift",
+      "seed": 202,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        270,
+        450
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    },
+    {
+      "scenario": "drift",
+      "seed": 203,
+      "method": "ruptures-Binseg-offline",
+      "forced_internal_breakpoints": 2,
+      "segment_end_s": [
+        270,
+        450
+      ],
+      "warning": "Uses the full future recording and a forced count of two; not an online or directly comparable detector."
+    }
+  ],
+  "scope": "Exploratory synthetic point-anomaly comparison, not a fair ranking of group-event detectors. Residual features reuse each device baseline. Thresholds use baseline training data, not an independent calibration set; this is optimistic. Bidirectional anomaly methods and the one-sided residual rule have different objectives. Generator is linear and simple. No tuning on test labels. No causal or clinical validity, real-device data, or external language-model consultation."
+}

@@ -4,6 +4,7 @@ const page=await browser.newPage({viewport:{width:1440,height:1100}}),errors=[];
 try{
  await page.goto('http://127.0.0.1:4435');await page.waitForFunction(()=>document.getElementById('status').textContent.includes('packets checked'));
  assert.match(await page.locator('#status').innerText(),/6 shared windows/);assert.match(await page.locator('#verdict').innerText(),/witnesses agree|shared change/i);
+ await page.locator('#challenge-all').click();await page.waitForFunction(()=>document.getElementById('status').textContent.includes('Nine challenge analyses complete'));assert.match(await page.locator('#challenge-results').innerText(),/nominal candidate windows/);const evidenceDownload=page.waitForEvent('download');await page.locator('#challenge-export').click();await (await evidenceDownload).saveAs(new URL('example-challenge.json',out).pathname);
  await page.screenshot({path:new URL('desktop.png',out).pathname,fullPage:true});
  await page.locator('#time').fill('60');assert.match(await page.locator('#verdict').innerText(),/baseline/i);
  await page.locator('#time').fill('300');await page.locator('#remove').selectOption('W001');await page.waitForFunction(()=>document.querySelector('#source').textContent.includes('11 WEARERS'));assert.match(await page.locator('#status').innerText(),/0 survive/);
@@ -19,5 +20,5 @@ try{
  await page.locator('#about').click();await page.locator('#guide').waitFor({state:'visible'});await page.keyboard.press('Escape');
  await page.setViewportSize({width:390,height:844});await page.screenshot({path:new URL('mobile.png',out).pathname,fullPage:true});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);assert.ok(requests.every(r=>r.url.startsWith('http://127.0.0.1:4435/')));assert.ok(requests.every(r=>r.method==='GET'));
- await writeFile(new URL('browser-verification.json',out),JSON.stringify({verified_at:new Date().toISOString(),browser:'Google Chrome / Playwright',flows:['baseline replay','single witness removal','individual trace','all seven scenarios','capsule export/import','invalid input rejection','playback','field guide','390px mobile overflow'],uncaught_errors:errors,network_uploads:0,external_requests:0},null,2));console.log('Browser workflows passed');
+ await writeFile(new URL('browser-verification.json',out),JSON.stringify({verified_at:new Date().toISOString(),browser:'Google Chrome / Playwright',flows:['nine-analysis sensitivity suite','challenge evidence export','baseline replay','single witness removal','individual trace','all seven scenarios','capsule export/import','invalid input rejection','playback','field guide','390px mobile overflow'],uncaught_errors:errors,network_uploads:0,external_requests:0},null,2));console.log('Browser workflows passed');
 }finally{await browser.close();}

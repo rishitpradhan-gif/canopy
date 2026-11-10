@@ -1,0 +1,5 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {simulate} from '../dist/core.mjs';import {challenge} from '../dist/evidence.mjs';
+test('challenge checks nine prespecified variants and preserves explicit provenance',()=>{const d=simulate(),before=JSON.stringify(d),r=challenge(d);assert.equal(r.trials.length,9);assert.equal(r.candidates.length,6);assert.equal(JSON.stringify(d),before);assert.ok(r.candidates.every(c=>c.checks.length===9&&c.checks[0].status==='supported'));});
+test('null cases do not become claims of robust normality',()=>{const r=challenge(simulate({scenario:'null'}));assert.equal(r.summary.nominal_candidates,0);assert.equal(r.summary.stable_candidates,0);});
+test('correlated drift remains an acknowledged ambiguity',()=>{const r=challenge(simulate({scenario:'drift'}));assert.ok(r.candidates.length>0);assert.ok(r.limits.some(l=>l.includes('Correlated drift')));});
+test('challenge workload is bounded',()=>{assert.throws(()=>challenge({samples:new Array(50001)}),/50,000/);});

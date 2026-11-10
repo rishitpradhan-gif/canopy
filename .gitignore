@@ -3,3 +3,5 @@ node_modules/
 *.local.json
 demo.json
 .DS_Store
+.research-env/
+__pycache__/

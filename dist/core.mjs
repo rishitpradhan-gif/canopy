@@ -1,4 +1,4 @@
-export const VERSION = '0.1.0';
+export const VERSION = '0.2.0';
 export const DEFAULTS = Object.freeze({baseline_s:120, window_s:30, cell_m:50, z_threshold:3, quorum:0.6, min_peers:3, quality_min:0.7});
 export const mean = a => a.reduce((s,x)=>s+x,0)/a.length;
 export function median(a){if(!a.length)return 0;const s=[...a].sort((a,b)=>a-b),m=Math.floor(s.length/2);return s.length%2?s[m]:(s[m-1]+s[m])/2;}

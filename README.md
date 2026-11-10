@@ -67,6 +67,14 @@ See [the method and elementary guarantees](docs/method.md). The algorithm is a t
 
 ## Validation
 
+### Automated challenge suite, version 0.2
+
+Use **Run nine challenges** in the replay, or run `node cli.mjs challenge recording.json --out evidence.json`. The local API exposes the same suite at `POST /api/challenge`. It checks prespecified changes to residual thresholds, quorum, grid origin, and cell size. Candidate matching uses the same time window and voter-set Jaccard overlap of at least 0.5, not identical shifted coordinates. Its stability label is conditional on these nine tests, not a confidence probability or a causal result. Correlated sensor drift can survive all checks. The suite accepts up to 50,000 samples.
+
+`npm run automate` runs core/API/challenge tests and 140 seeded recordings through nine analyses each, writes hashed-source evidence to `docs/autopilot-results.json`, and exits unsuccessfully if its explicit regression gates fail. It does not publish code by itself. A separately configured daily development agent continues bounded improvements; details and the next work are in [DEVELOPMENT.md](DEVELOPMENT.md).
+
+[The stack review](docs/ai-stack-review.md) distinguishes four actually executed scientific libraries from documentation-only candidates. The optional comparison runs 75 point-detector fits/rules and 15 offline segmentations across 15 synthetic recordings. It is exploratory and is not a group-event detector leaderboard. Its dependencies are isolated from the zero-dependency runtime.
+
 ```sh
 npm test
 node scripts/benchmark.mjs --full

@@ -1,0 +1,516 @@
+{
+  "schema": "canopy-challenge/1",
+  "engine": "0.2.0",
+  "settings": {
+    "baseline_s": 120,
+    "window_s": 30,
+    "cell_m": 50,
+    "z_threshold": 3,
+    "quorum": 0.6,
+    "min_peers": 3,
+    "quality_min": 0.7
+  },
+  "trials": [
+    {
+      "id": "nominal",
+      "settings": {
+        "baseline_s": 120,
+        "window_s": 30,
+        "cell_m": 50,
+        "z_threshold": 3,
+        "quorum": 0.6,
+        "min_peers": 3,
+        "quality_min": 0.7
+      },
+      "shift": [
+        0,
+        0
+      ],
+      "error": null,
+      "shared_windows": 6
+    },
+    {
+      "id": "threshold-lower",
+      "settings": {
+        "baseline_s": 120,
+        "window_s": 30,
+        "cell_m": 50,
+        "z_threshold": 2.5,
+        "quorum": 0.6,
+        "min_peers": 3,
+        "quality_min": 0.7
+      },
+      "shift": [
+        0,
+        0
+      ],
+      "error": null,
+      "shared_windows": 6
+    },
+    {
+      "id": "threshold-higher",
+      "settings": {
+        "baseline_s": 120,
+        "window_s": 30,
+        "cell_m": 50,
+        "z_threshold": 3.5,
+        "quorum": 0.6,
+        "min_peers": 3,
+        "quality_min": 0.7
+      },
+      "shift": [
+        0,
+        0
+      ],
+      "error": null,
+      "shared_windows": 6
+    },
+    {
+      "id": "quorum-stricter",
+      "settings": {
+        "baseline_s": 120,
+        "window_s": 30,
+        "cell_m": 50,
+        "z_threshold": 3,
+        "quorum": 0.75,
+        "min_peers": 3,
+        "quality_min": 0.7
+      },
+      "shift": [
+        0,
+        0
+      ],
+      "error": null,
+      "shared_windows": 6
+    },
+    {
+      "id": "grid-half-x",
+      "settings": {
+        "baseline_s": 120,
+        "window_s": 30,
+        "cell_m": 50,
+        "z_threshold": 3,
+        "quorum": 0.6,
+        "min_peers": 3,
+        "quality_min": 0.7
+      },
+      "shift": [
+        25,
+        0
+      ],
+      "error": null,
+      "shared_windows": 4
+    },
+    {
+      "id": "grid-half-y",
+      "settings": {
+        "baseline_s": 120,
+        "window_s": 30,
+        "cell_m": 50,
+        "z_threshold": 3,
+        "quorum": 0.6,
+        "min_peers": 3,
+        "quality_min": 0.7
+      },
+      "shift": [
+        0,
+        25
+      ],
+      "error": null,
+      "shared_windows": 6
+    },
+    {
+      "id": "grid-half-xy",
+      "settings": {
+        "baseline_s": 120,
+        "window_s": 30,
+        "cell_m": 50,
+        "z_threshold": 3,
+        "quorum": 0.6,
+        "min_peers": 3,
+        "quality_min": 0.7
+      },
+      "shift": [
+        25,
+        25
+      ],
+      "error": null,
+      "shared_windows": 4
+    },
+    {
+      "id": "cells-smaller",
+      "settings": {
+        "baseline_s": 120,
+        "window_s": 30,
+        "cell_m": 37.5,
+        "z_threshold": 3,
+        "quorum": 0.6,
+        "min_peers": 3,
+        "quality_min": 0.7
+      },
+      "shift": [
+        0,
+        0
+      ],
+      "error": null,
+      "shared_windows": 6
+    },
+    {
+      "id": "cells-larger",
+      "settings": {
+        "baseline_s": 120,
+        "window_s": 30,
+        "cell_m": 62.5,
+        "z_threshold": 3,
+        "quorum": 0.6,
+        "min_peers": 3,
+        "quality_min": 0.7
+      },
+      "shift": [
+        0,
+        0
+      ],
+      "error": null,
+      "shared_windows": 6
+    }
+  ],
+  "candidates": [
+    {
+      "start_s": 270,
+      "end_s": 300,
+      "cell": [
+        0,
+        0
+      ],
+      "voters": [
+        "W001",
+        "W004",
+        "W007",
+        "W010"
+      ],
+      "checks": [
+        {
+          "id": "nominal",
+          "status": "supported"
+        },
+        {
+          "id": "threshold-lower",
+          "status": "supported"
+        },
+        {
+          "id": "threshold-higher",
+          "status": "supported"
+        },
+        {
+          "id": "quorum-stricter",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-x",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-y",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-xy",
+          "status": "supported"
+        },
+        {
+          "id": "cells-smaller",
+          "status": "supported"
+        },
+        {
+          "id": "cells-larger",
+          "status": "supported"
+        }
+      ],
+      "supported": 9,
+      "total": 9,
+      "classification": "stable-under-tested-changes"
+    },
+    {
+      "start_s": 300,
+      "end_s": 330,
+      "cell": [
+        0,
+        0
+      ],
+      "voters": [
+        "W001",
+        "W004",
+        "W007"
+      ],
+      "checks": [
+        {
+          "id": "nominal",
+          "status": "supported"
+        },
+        {
+          "id": "threshold-lower",
+          "status": "supported"
+        },
+        {
+          "id": "threshold-higher",
+          "status": "supported"
+        },
+        {
+          "id": "quorum-stricter",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-x",
+          "status": "not-supported"
+        },
+        {
+          "id": "grid-half-y",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-xy",
+          "status": "not-supported"
+        },
+        {
+          "id": "cells-smaller",
+          "status": "supported"
+        },
+        {
+          "id": "cells-larger",
+          "status": "supported"
+        }
+      ],
+      "supported": 7,
+      "total": 9,
+      "classification": "sensitive-to-analysis-choices"
+    },
+    {
+      "start_s": 330,
+      "end_s": 360,
+      "cell": [
+        0,
+        0
+      ],
+      "voters": [
+        "W001",
+        "W004",
+        "W007"
+      ],
+      "checks": [
+        {
+          "id": "nominal",
+          "status": "supported"
+        },
+        {
+          "id": "threshold-lower",
+          "status": "supported"
+        },
+        {
+          "id": "threshold-higher",
+          "status": "supported"
+        },
+        {
+          "id": "quorum-stricter",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-x",
+          "status": "not-supported"
+        },
+        {
+          "id": "grid-half-y",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-xy",
+          "status": "not-supported"
+        },
+        {
+          "id": "cells-smaller",
+          "status": "supported"
+        },
+        {
+          "id": "cells-larger",
+          "status": "supported"
+        }
+      ],
+      "supported": 7,
+      "total": 9,
+      "classification": "sensitive-to-analysis-choices"
+    },
+    {
+      "start_s": 360,
+      "end_s": 390,
+      "cell": [
+        0,
+        0
+      ],
+      "voters": [
+        "W001",
+        "W004",
+        "W007",
+        "W010"
+      ],
+      "checks": [
+        {
+          "id": "nominal",
+          "status": "supported"
+        },
+        {
+          "id": "threshold-lower",
+          "status": "supported"
+        },
+        {
+          "id": "threshold-higher",
+          "status": "supported"
+        },
+        {
+          "id": "quorum-stricter",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-x",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-y",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-xy",
+          "status": "supported"
+        },
+        {
+          "id": "cells-smaller",
+          "status": "supported"
+        },
+        {
+          "id": "cells-larger",
+          "status": "supported"
+        }
+      ],
+      "supported": 9,
+      "total": 9,
+      "classification": "stable-under-tested-changes"
+    },
+    {
+      "start_s": 390,
+      "end_s": 420,
+      "cell": [
+        0,
+        0
+      ],
+      "voters": [
+        "W001",
+        "W004",
+        "W007",
+        "W010"
+      ],
+      "checks": [
+        {
+          "id": "nominal",
+          "status": "supported"
+        },
+        {
+          "id": "threshold-lower",
+          "status": "supported"
+        },
+        {
+          "id": "threshold-higher",
+          "status": "supported"
+        },
+        {
+          "id": "quorum-stricter",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-x",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-y",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-xy",
+          "status": "supported"
+        },
+        {
+          "id": "cells-smaller",
+          "status": "supported"
+        },
+        {
+          "id": "cells-larger",
+          "status": "supported"
+        }
+      ],
+      "supported": 9,
+      "total": 9,
+      "classification": "stable-under-tested-changes"
+    },
+    {
+      "start_s": 420,
+      "end_s": 450,
+      "cell": [
+        0,
+        0
+      ],
+      "voters": [
+        "W001",
+        "W004",
+        "W007",
+        "W010"
+      ],
+      "checks": [
+        {
+          "id": "nominal",
+          "status": "supported"
+        },
+        {
+          "id": "threshold-lower",
+          "status": "supported"
+        },
+        {
+          "id": "threshold-higher",
+          "status": "supported"
+        },
+        {
+          "id": "quorum-stricter",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-x",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-y",
+          "status": "supported"
+        },
+        {
+          "id": "grid-half-xy",
+          "status": "supported"
+        },
+        {
+          "id": "cells-smaller",
+          "status": "supported"
+        },
+        {
+          "id": "cells-larger",
+          "status": "supported"
+        }
+      ],
+      "supported": 9,
+      "total": 9,
+      "classification": "stable-under-tested-changes"
+    }
+  ],
+  "summary": {
+    "nominal_candidates": 6,
+    "stable_candidates": 4
+  },
+  "limits": [
+    "Nine prespecified one-at-a-time perturbations, not a complete sensitivity proof or confidence probability.",
+    "Matching uses the same time window and voter-set Jaccard overlap >= 0.5; spatial coordinates alone are not matched.",
+    "No nominal finding means no candidate robustness conclusion. Correlated drift can remain stable."
+  ]
+}

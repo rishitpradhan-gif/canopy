@@ -1,0 +1,1139 @@
+{
+  "schema": "canopy-pipeline/1",
+  "engine": "0.2.0",
+  "created_at": "2026-11-10T03:20:20.054Z",
+  "node": "v22.17.1",
+  "source_hashes": {
+    "dist/core.mjs": "3d8a4610bf31ac9a6f01c3a6055eaf5b7a9e8686453e2ca4e2a0bd42038fd9f2",
+    "dist/evidence.mjs": "94bc2e9d06b4176551fd05ded3273d0ead6d565b14360adfe6addc1ca496f735",
+    "scripts/autopilot.mjs": "1e7e55c75a326f2f88a434732008a813579d6327895cff8c23a41f83bee4e68c"
+  },
+  "tests_passed": true,
+  "regression_gates_passed": true,
+  "violations": [],
+  "recordings": 140,
+  "analyses": 1260,
+  "records": [
+    {
+      "scenario": "shared",
+      "seed": 101,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 102,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 103,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 104,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 105,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 106,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 107,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 108,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 109,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 110,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 111,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 112,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 113,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 114,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 115,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 116,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 117,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 118,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 119,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "shared",
+      "seed": 120,
+      "nominal_candidates": 6,
+      "stable_candidates": 4,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 101,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 102,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 103,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 104,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 105,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 106,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 107,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 108,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 109,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 110,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 111,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 112,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 113,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 114,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 115,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 116,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 117,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 118,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 119,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "workload",
+      "seed": 120,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 101,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 102,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 103,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 104,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 105,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 106,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 107,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 108,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 109,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 110,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 111,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 112,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 113,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 114,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 115,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 116,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 117,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 118,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 119,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "sensor",
+      "seed": 120,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 101,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 102,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 103,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 104,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 105,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 106,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 107,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 108,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 109,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 110,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 111,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 112,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 113,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 114,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 115,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 116,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 117,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 118,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 119,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "null",
+      "seed": 120,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 101,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 102,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 103,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 104,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 105,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 106,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 107,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 108,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 109,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 110,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 111,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 112,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 113,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 114,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 115,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 116,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 117,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 118,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 119,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "dropout",
+      "seed": 120,
+      "nominal_candidates": 0,
+      "stable_candidates": 0,
+      "sensitive": 0,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 101,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 102,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 103,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 104,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 105,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 106,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 107,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 108,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 109,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 110,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 111,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 112,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 113,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 114,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 115,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 116,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 117,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 118,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 119,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "boundary",
+      "seed": 120,
+      "nominal_candidates": 2,
+      "stable_candidates": 0,
+      "sensitive": 2,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 101,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 102,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 103,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 104,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 105,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 106,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 107,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 108,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 109,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 110,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 111,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 112,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 113,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 114,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 115,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 116,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 117,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 118,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 119,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    },
+    {
+      "scenario": "drift",
+      "seed": 120,
+      "nominal_candidates": 16,
+      "stable_candidates": 13,
+      "sensitive": 3,
+      "unsupported_trials": 0
+    }
+  ],
+  "interpretation": "Synthetic sensitivity suite. Stability under tested changes is not correctness, causal identification, or clinical validation."
+}

@@ -14,6 +14,8 @@ with TemporaryDirectory(prefix='canopy-package-') as temp:
     output = subprocess.check_output(['node','cli.mjs','analyze','docs/example-capsule.json'], cwd=app)
     report = json.loads(output)
     assert report['summary']['shared_windows'] == 6
+    evidence=json.loads(subprocess.check_output(['node','cli.mjs','challenge','docs/example-capsule.json'],cwd=app))
+    assert len(evidence['trials'])==9
     with socket.socket() as s:
         s.bind(('127.0.0.1',0))
         port=s.getsockname()[1]
@@ -30,7 +32,7 @@ with TemporaryDirectory(prefix='canopy-package-') as temp:
                 time.sleep(.1)
         else:
             raise RuntimeError('Extracted app did not start')
-        print(json.dumps({'zip_integrity':'passed','extracted_cli':'passed','extracted_app':'passed','shared_windows':6}))
+        print(json.dumps({'zip_integrity':'passed','extracted_cli':'passed','extracted_challenge':'passed','extracted_app':'passed','shared_windows':6}))
     finally:
         p.terminate()
         p.communicate(timeout=5)
