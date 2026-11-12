@@ -1,12 +1,12 @@
 {
   "schema": "canopy-pipeline/1",
   "engine": "0.2.0",
-  "created_at": "2026-11-10T03:20:20.054Z",
+  "created_at": "2026-11-12T22:51:22.533Z",
   "node": "v22.17.1",
   "source_hashes": {
     "dist/core.mjs": "3d8a4610bf31ac9a6f01c3a6055eaf5b7a9e8686453e2ca4e2a0bd42038fd9f2",
     "dist/evidence.mjs": "94bc2e9d06b4176551fd05ded3273d0ead6d565b14360adfe6addc1ca496f735",
-    "scripts/autopilot.mjs": "1e7e55c75a326f2f88a434732008a813579d6327895cff8c23a41f83bee4e68c"
+    "scripts/autopilot.mjs": "2146ccd237863c38778af02a868536e79b0976e4d211fc0b44b7042c1ba6c8bc"
   },
   "tests_passed": true,
   "regression_gates_passed": true,

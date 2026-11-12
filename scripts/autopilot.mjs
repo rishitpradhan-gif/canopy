@@ -1,10 +1,12 @@
-import {spawnSync} from 'node:child_process';import {mkdir,writeFile,readFile} from 'node:fs/promises';import {createHash} from 'node:crypto';
+import {spawnSync} from 'node:child_process';import {mkdir,writeFile,readFile,readdir} from 'node:fs/promises';import {createHash} from 'node:crypto';
 import {simulate,VERSION} from '../dist/core.mjs';import {challenge} from '../dist/evidence.mjs';
 await mkdir('docs',{recursive:true});
-const tests=spawnSync(process.execPath,['--test','tests/core.test.mjs','tests/server.test.mjs','tests/evidence.test.mjs'],{encoding:'utf8'});
+const testFiles=(await readdir('tests')).filter(f=>f.endsWith('.test.mjs')).sort().map(f=>`tests/${f}`);
+const tests=spawnSync(process.execPath,['--test',...testFiles],{encoding:'utf8'});
 if(tests.status!==0){process.stderr.write(tests.stdout+tests.stderr);process.exit(1);}
 const records=[];for(const scenario of ['shared','workload','sensor','null','dropout','boundary','drift'])for(let seed=101;seed<=120;seed++){const r=challenge(simulate({scenario,seed}));records.push({scenario,seed,...r.summary,sensitive:r.candidates.filter(c=>c.classification==='sensitive-to-analysis-choices').length,unsupported_trials:r.trials.filter(t=>t.error).length});}
 const hashes={};for(const f of ['dist/core.mjs','dist/evidence.mjs','scripts/autopilot.mjs'])hashes[f]=createHash('sha256').update(await readFile(f)).digest('hex');
 const violations=records.filter(r=>r.unsupported_trials||(['null','workload','sensor','dropout'].includes(r.scenario)&&r.nominal_candidates!==0)||(r.scenario==='shared'&&r.nominal_candidates!==6)||(r.scenario==='drift'&&r.nominal_candidates===0));
 const report={schema:'canopy-pipeline/1',engine:VERSION,created_at:new Date().toISOString(),node:process.version,source_hashes:hashes,tests_passed:true,regression_gates_passed:violations.length===0,violations,recordings:records.length,analyses:records.length*9,records,interpretation:'Synthetic sensitivity suite. Stability under tested changes is not correctness, causal identification, or clinical validation.'};
 await writeFile('docs/autopilot-results.json',JSON.stringify(report,null,2)+'\n');if(violations.length){console.error(`${violations.length} regression gates failed; report retained`);process.exit(1);}console.log(`Core/API/challenge tests and regression gates passed. ${records.length} recordings, ${report.analyses} analysis runs. Report: docs/autopilot-results.json`);
+const stress=spawnSync(process.execPath,['scripts/stress-evaluate.mjs'],{encoding:'utf8'});process.stdout.write(stress.stdout);if(stress.status!==0){process.stderr.write(stress.stderr);process.exit(1);}

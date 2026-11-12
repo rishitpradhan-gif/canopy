@@ -73,6 +73,8 @@ Use **Run nine challenges** in the replay, or run `node cli.mjs challenge record
 
 `npm run automate` runs core/API/challenge tests and 140 seeded recordings through nine analyses each, writes hashed-source evidence to `docs/autopilot-results.json`, and exits unsuccessfully if its explicit regression gates fail. It does not publish code by itself. A separately configured daily development agent continues bounded improvements; details and the next work are in [DEVELOPMENT.md](DEVELOPMENT.md).
 
+This review branch adds a separate [nonlinear stress generator and evaluation](docs/independent-stress.md), including delayed response, autocorrelated noise, nuisance changes, and packet loss. The automation discovers every test module and also records this diagnostic suite. Its failures are retained without adjusting the production detector or implying a performance pass. The hosted preview and downloadable 0.2 release remain unchanged pending review.
+
 [The stack review](docs/ai-stack-review.md) distinguishes four actually executed scientific libraries from documentation-only candidates. The optional comparison runs 75 point-detector fits/rules and 15 offline segmentations across 15 synthetic recordings. It is exploratory and is not a group-event detector leaderboard. Its dependencies are isolated from the zero-dependency runtime.
 
 ```sh
