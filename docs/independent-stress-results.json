@@ -1,7 +1,7 @@
 {
   "schema": "canopy-independent-stress/2",
   "engine": "0.2.0",
-  "created_at": "2026-11-12T22:51:24.882Z",
+  "created_at": "2026-11-13T17:49:22.206Z",
   "node": "v22.17.1",
   "settings": {
     "baseline_s": 120,
@@ -15,7 +15,7 @@
   "source_hashes": {
     "dist/core.mjs": "3d8a4610bf31ac9a6f01c3a6055eaf5b7a9e8686453e2ca4e2a0bd42038fd9f2",
     "research/stress-generator.mjs": "b1d01c0b1633865519adac4227ce4ea125627936c72bc260e7726436407225f6",
-    "research/coverage.mjs": "a5bfef6c9af0b4d02a135adc2b242d693359963f5501eb43ce44192aa6a26272",
+    "research/coverage.mjs": "a94cc905330f4ecd0832d1549a0cb92ac1ce3af7bbd9d72b448b2142c9824044",
     "scripts/stress-evaluate.mjs": "e7bc1d9825c8993d2cb4961c38bcd57d59f3f232eeb84bcfdc8723c7590ca888"
   },
   "seed_range": [

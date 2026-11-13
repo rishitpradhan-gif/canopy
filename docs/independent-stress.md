@@ -32,7 +32,7 @@ npm run automate
 
 The diagnostic suite records failures without tuning the detector or setting a performance pass threshold. Existing clean-fixture regression gates remain in force. Next: review the generator/truth contract, then prespecify coverage-aware event metrics and hold out new parameters before testing detector changes. No hardware, clinical, causal, or field validation was performed.
 
-Validation: all 29 core/API/challenge/generator/coverage tests passed; all existing 1,260 sensitivity analyses passed their software regression gates; the 100 new diagnostic recordings completed with the shortcomings above retained. Browser checks and a hosted deployment are unnecessary for this evaluation-only branch; runtime/UI files were not changed.
+Validation: all 33 core/API/challenge/generator/coverage tests passed; all existing 1,260 sensitivity analyses passed their software regression gates; the 100 new diagnostic recordings completed with the shortcomings above retained. Browser checks and a hosted deployment are unnecessary for this evaluation-only branch; runtime/UI files were not changed.
 
 ## Expected-domain coverage accounting
 
@@ -43,3 +43,9 @@ For the 140 constructed shared-event truth windows, 100 had the minimum number o
 Event coverage is eligible truth windows divided by all truth windows. Unconditional event recall uses all truth windows; eligible-only recall uses only eligible truth windows. Their denominators must remain visible. A missing or ineligible window is not called normal, and this research-only state accounting does not change the production detector.
 
 This denominator is possible because the simulation provides a known schedule. A real deployment would need a separately justified enrollment/observation schedule and geometry; received packets cannot reveal every absent cell or device. The evaluator does not invent that information or claim calibrated abstention, physiological validity, or safe conditions.
+
+## Coverage input hardening — November 13, 2026
+
+The evaluator now rejects a reported eligible-device count larger than the distinct devices scheduled in that cell/window. Multiple expected readings from one device do not increase this upper bound. It also rejects truthy nonboolean detection values (including the string `false`), invalid window widths/quorum settings, malformed coordinates, and empty enrollment identities. Previously, structurally inconsistent reports could produce plausible coverage rates instead of failing explicitly. Four adversarial regression tests preserve these counterexamples.
+
+This is evaluation input validation, not authentication of the schedule, proof of packet identity, or validation of clinical eligibility. A forged but internally consistent input remains possible. Rerunning the full synthetic pipeline leaves all per-recording numerical outcomes unchanged; the 65/81 missed shared-event windows and nuisance flags above remain in the diagnostic report. No detector, API, browser, downloadable runtime, or hosted-preview change is included.
