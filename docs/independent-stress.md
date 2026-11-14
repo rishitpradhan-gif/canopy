@@ -20,7 +20,7 @@ The nonlinear-null case produced no shared flags in twenty recordings. Synchroni
 
 Canopy reports shared measurement changes, not environmental causes. These nuisance flags are **not proof that the program incorrectly claimed causation**. They demonstrate that interpreting a shared flag as a physical environmental event would be unsupported, and that clean linear-generator scores do not generalize to these invented dynamics.
 
-Per-recording counts, packet losses, settings, source hashes, and limitations are in `independent-stress-results.json` (schema version 2). The legacy `eligible_fraction_among_reported` omits entirely missing windows and must not be presented as overall coverage. The new `coverage` object uses an externally specified expected domain instead, as described below.
+Per-recording counts, packet losses, settings, source hashes, and limitations are in `independent-stress-results.json` (schema version 3). The legacy `eligible_fraction_among_reported` omits entirely missing windows and must not be presented as overall coverage. The new `coverage` object uses an externally specified expected domain instead, as described below.
 
 ## Reproduce
 
@@ -32,7 +32,7 @@ npm run automate
 
 The diagnostic suite records failures without tuning the detector or setting a performance pass threshold. Existing clean-fixture regression gates remain in force. Next: review the generator/truth contract, then prespecify coverage-aware event metrics and hold out new parameters before testing detector changes. No hardware, clinical, causal, or field validation was performed.
 
-Validation: all 33 core/API/challenge/generator/coverage tests passed; all existing 1,260 sensitivity analyses passed their software regression gates; the 100 new diagnostic recordings completed with the shortcomings above retained. Browser checks and a hosted deployment are unnecessary for this evaluation-only branch; runtime/UI files were not changed.
+Validation: all 41 core/API/challenge/generator/coverage/matching tests passed; all existing 1,260 sensitivity analyses passed their software regression gates; the 100 new diagnostic recordings completed with the shortcomings above retained. Browser checks and a hosted deployment are unnecessary for this evaluation-only branch; runtime/UI files were not changed.
 
 ## Expected-domain coverage accounting
 
@@ -49,3 +49,15 @@ This denominator is possible because the simulation provides a known schedule. A
 The evaluator now rejects a reported eligible-device count larger than the distinct devices scheduled in that cell/window. Multiple expected readings from one device do not increase this upper bound. It also rejects truthy nonboolean detection values (including the string `false`), invalid window widths/quorum settings, malformed coordinates, and empty enrollment identities. Previously, structurally inconsistent reports could produce plausible coverage rates instead of failing explicitly. Four adversarial regression tests preserve these counterexamples.
 
 This is evaluation input validation, not authentication of the schedule, proof of packet identity, or validation of clinical eligibility. A forged but internally consistent input remains possible. Rerunning the full synthetic pipeline leaves all per-recording numerical outcomes unchanged; the 65/81 missed shared-event windows and nuisance flags above remain in the diagnostic report. No detector, API, browser, downloadable runtime, or hosted-preview change is included.
+
+## One-to-one tolerance diagnostics — November 14, 2026
+
+`research/window-matching.mjs` adds maximum-cardinality bipartite matching between supplied flagged and truth-positive cell/windows. Each window is used at most once. Compatibility requires both absolute start-time displacement within the configured seconds and Euclidean grid-cell-center displacement within the configured metres. Defaults are exact matching. This is window matching, not aggregation into event episodes. Ties are deterministic under sorted coordinates; assignments are not optimized for minimum distance. Inputs reject duplicate/malformed windows, invalid tolerances, and arrays over 1,000 windows per side.
+
+The augmenting-path implementation is checked against an independently written exhaustive assignment oracle on all 256 subset pairs of a four-cell grid. An adversarial two-flag geometry requires reassignment to avoid a greedy undercount. Tests also verify unique use of windows, inclusive spatial/temporal boundaries, original input indexes, permutation-invariant cardinality, empty-denominator nulls, and exact-metric parity across all five stress scenario types.
+
+The report retains the original strict metrics and coverage unchanged, adding `flagged_windows`, `expected_truth_windows`, and three `tolerance_diagnostics` entries per recording. Settings are (0 seconds, 0 metres), (30 seconds, 0 metres), and (30 seconds, 50 metres), using the original 50-metre grid. Source hashes include the matcher. These are **post-hoc diagnostic sensitivities on already examined recordings**, not held-out estimates, a new detector, or an acceptance threshold. A separately prespecified hold-out cohort is still required before comparing alternatives.
+
+Across this synthetic cohort, every tested setting yields the same 75 matches / 65 misses for the shared-event case and 59 matches / 81 misses with packet loss. The tested allowances recover no additional truth windows. Existing nuisance flags remain: 12 under lagged workload and 229 under correlated instrument drift. No detector parameters or production files changed. These findings do not identify the causes of missed or flagged physical events.
+
+Coverage continues to describe eligibility at the original exact cell/window. Tolerant matches do not retroactively make a truth window eligible, change missing-data accounting, or establish physical localization accuracy. Adding allowable match edges can mechanically increase matched counts even with an unchanged detector; the exact baseline must stay visible. No hardware, clinical, causal, or field validation was performed. Browser checks and hosted/download updates are not applicable to this evaluation-only addition.
