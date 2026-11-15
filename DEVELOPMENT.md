@@ -10,7 +10,7 @@ The owner requested a daily development run. A native app heartbeat named **Deve
 npm run automate
 ```
 
-On this review branch this discovers all test modules (41 tests currently), runs 140 seeded recordings × nine analyses, then writes a separate 100-recording nonlinear stress evaluation. Reports include source hashes, settings, seeds, outcomes, and explicit clean-fixture regression gates. Failed gates must block release; preserve the failure report. The stress results are diagnostic, without a performance pass threshold. Run the Chrome test when browser-facing behavior changes. A preview on port 4435 is needed for that test; stop owned previews afterward.
+On this review branch this discovers all test modules (43 tests currently), runs 140 seeded recordings × nine analyses, then writes a separate 100-recording nonlinear stress evaluation. Reports include source hashes, settings, seeds, outcomes, and explicit clean-fixture regression gates. Failed gates must block release; preserve the failure report. The stress results are diagnostic, without a performance pass threshold. Run the Chrome test when browser-facing behavior changes. A preview on port 4435 is needed for that test; stop owned previews afterward.
 
 The optional scientific environment can be recreated with Python 3.12+ in a disposable environment, installing `research/requirements-lock.txt`, then running `python research/compare.py`. Do not add those packages to the zero-dependency runtime. Four library stacks are exercised, not external language models. `docs/stack-comparison.json` describes the incompatible objectives and limits of their exploratory scores.
 
@@ -23,3 +23,7 @@ The optional scientific environment can be recreated with Python 3.12+ in a disp
 5. Design an experiment-selection feature that states which independent measurement could distinguish competing explanations. Do not claim causal identification from quorum or sensitivity stability.
 
 Source repo: rishitpradhan-gif/canopy. Hosted preview retains owner-only sharing. Prepare supported Sites source workflow before source edits, package tested state, and deploy the matching commit. Prefer a review branch for scientific/architectural changes. Do not publish personal data, start human studies, call paid APIs, or alter permissions. Keep a clear distinction between completed software, simulation findings, documentation review, and unvalidated research hypotheses.
+
+## 2026-11-15 validation hardening
+
+Coverage previously accepted sparse two-coordinate arrays because `Array.every` skips holes. Matching malformed schedule/report/truth cells could therefore produce plausible coverage. Finite timestamps and widths could also overflow window arithmetic and emit nonfinite window starts. Both cases were reproduced with failing regression tests before the fix; the fixtures remain in `tests/coverage.test.mjs`. Required coordinates are now checked explicitly and nonfinite derived window starts reject. This is evaluator input validation, not schedule authentication or a detector performance improvement. Existing synthetic failures remain retained. Browser/runtime assets are unchanged; no preview deployment is needed for this research-only change.

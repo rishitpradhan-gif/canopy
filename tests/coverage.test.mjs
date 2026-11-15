@@ -14,3 +14,20 @@ test('eligibility is bounded by distinct scheduled devices, not packet count',()
 test('truthy strings cannot masquerade as detections',()=>{for(const detected of ['false',1,null,undefined]){const r=minimal();r.windows[0].detected=detected;assert.throws(()=>expectedCoverage(r,schedule,[]),/boolean/);}});
 test('invalid settings fail before denominator construction',()=>{for(const value of [0,-1,NaN,Infinity]){const r=minimal();r.settings.window_s=value;assert.throws(()=>expectedCoverage(r,schedule,[]),/settings/);}for(const value of [0,1.5,Infinity]){const r=minimal();r.settings.min_peers=value;assert.throws(()=>expectedCoverage(r,schedule,[]),/settings/);}assert.throws(()=>expectedCoverage(null,schedule,[]),/report/);});
 test('malformed coordinates and empty enrollment identities reject explicitly',()=>{const r=minimal();assert.throws(()=>expectedCoverage(r,[{...schedule[0],device:''}],[]),/slot/);for(const cell of [[0.5,0],[0],null])assert.throws(()=>expectedCoverage(r,schedule,[{start_s:120,cell}]),/coordinates/);assert.throws(()=>expectedCoverage(r,schedule,[null]),/coordinates/);});
+
+
+test('sparse coordinate pairs cannot manufacture an apparently covered domain',()=>{
+  for(const cell of [new Array(2),[,0],[0,,]]){
+    const r=minimal();r.windows[0].cell=cell;
+    const slots=schedule.map(s=>({...s,cell}));
+    assert.throws(()=>expectedCoverage(r,slots,[{start_s:120,cell}]),/slot|coordinates/);
+    assert.throws(()=>expectedCoverage(minimal(),schedule,[{start_s:120,cell}]),/coordinates/);
+    assert.throws(()=>expectedCoverage(r,schedule,[]),/coordinates/);
+  }
+});
+test('finite inputs that overflow window arithmetic fail instead of yielding invalid denominators',()=>{
+  const r=minimal();r.windows=[];r.baseline.end_s=-Number.MAX_VALUE;
+  assert.throws(()=>expectedCoverage(r,[{device:'a',t_s:Number.MAX_VALUE,cell:[0,0]}],[]),/window arithmetic/);
+  r.baseline.end_s=0;r.settings.window_s=Number.MIN_VALUE;
+  assert.throws(()=>expectedCoverage(r,[{device:'a',t_s:1,cell:[0,0]}],[]),/window arithmetic/);
+});
