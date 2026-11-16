@@ -5,3 +5,4 @@ demo.json
 .DS_Store
 .research-env/
 __pycache__/
+docs/pipeline-failures/

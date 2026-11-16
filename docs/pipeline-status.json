@@ -1,0 +1,18 @@
+{
+  "schema": "canopy-run-status/1",
+  "id": "4b55f7a6-6644-4c82-b07f-3d296086d447",
+  "started_at": "2026-11-16T19:27:01.382Z",
+  "node": "v22.17.1",
+  "command": "/Users/rishitpradhan/.nvm/versions/node/v22.17.1/bin/node",
+  "args": [
+    "scripts/autopilot.mjs"
+  ],
+  "status": "passed",
+  "finished_at": "2026-11-16T19:27:09.303Z",
+  "exit_code": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "Core/API/challenge tests and regression gates passed. 140 recordings, 1260 analysis runs. Report: docs/autopilot-results.json\n[\n  {\n    \"scenario\": \"nonlinear-null\",\n    \"recordings\": 20,\n    \"tp\": 0,\n    \"fp\": 0,\n    \"fn\": 0,\n    \"recordings_with_flags_without_physical_truth\": 0\n  },\n  {\n    \"scenario\": \"lagged-workload\",\n    \"recordings\": 20,\n    \"tp\": 0,\n    \"fp\": 12,\n    \"fn\": 0,\n    \"recordings_with_flags_without_physical_truth\": 9\n  },\n  {\n    \"scenario\": \"shared-event\",\n    \"recordings\": 20,\n    \"tp\": 75,\n    \"fp\": 0,\n    \"fn\": 65,\n    \"recordings_with_flags_without_physical_truth\": 0\n  },\n  {\n    \"scenario\": \"correlated-drift\",\n    \"recordings\": 20,\n    \"tp\": 0,\n    \"fp\": 229,\n    \"fn\": 0,\n    \"recordings_with_flags_without_physical_truth\": 20\n  },\n  {\n    \"scenario\": \"dropout-event\",\n    \"recordings\": 20,\n    \"tp\": 59,\n    \"fp\": 0,\n    \"fn\": 81,\n    \"recordings_with_flags_without_physical_truth\": 0\n  }\n]\n",
+  "stderr": "",
+  "limitation": "Synthetic pipeline execution status only. Scientific reports from earlier runs may remain after a failure. Output capture is limited to 4 MiB per stream; overflow fails the run."
+}
