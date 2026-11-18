@@ -9,6 +9,11 @@ root = Path(__file__).resolve().parents[1]
 with TemporaryDirectory(prefix='canopy-package-') as temp:
     with ZipFile(root/'dist/downloads/canopy-local.zip') as z:
         assert z.testzip() is None
+        for name in z.namelist():
+            parts = Path(name).parts
+            assert 'pipeline-failures' not in parts, name
+            assert name != 'canopy/docs/pipeline-status.json', name
+            assert not any(part.startswith('.') for part in parts), name
         z.extractall(temp)
     app = Path(temp)/'canopy'
     output = subprocess.check_output(['node','cli.mjs','analyze','docs/example-capsule.json'], cwd=app)
