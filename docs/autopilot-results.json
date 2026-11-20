@@ -1,7 +1,7 @@
 {
   "schema": "canopy-pipeline/1",
   "engine": "0.2.0",
-  "created_at": "2026-11-19T19:34:03.116Z",
+  "created_at": "2026-11-20T19:41:28.645Z",
   "node": "v22.17.1",
   "source_hashes": {
     "dist/core.mjs": "3d8a4610bf31ac9a6f01c3a6055eaf5b7a9e8686453e2ca4e2a0bd42038fd9f2",

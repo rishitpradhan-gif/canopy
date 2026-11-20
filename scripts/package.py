@@ -1,6 +1,8 @@
 from pathlib import Path
 from zipfile import ZipFile, ZIP_DEFLATED
 import hashlib
+import os
+import tempfile
 
 root = Path(__file__).resolve().parents[1]
 def releasable(path):
@@ -26,8 +28,15 @@ for folder in ['dist', 'docs', 'scripts', 'tests', 'research']:
     for source in sorted((root / folder).rglob('*')):
         if source.is_file() and releasable(source):
             files.append(source)
-with ZipFile(target, 'w', ZIP_DEFLATED) as z:
-    for source in files:
-        z.write(source, 'canopy/' + str(source.relative_to(root)))
+# Build beside the destination so a failed write preserves the last download.
+fd, temporary = tempfile.mkstemp(prefix='.canopy-', suffix='.zip', dir=out)
+os.close(fd)
+try:
+    with ZipFile(temporary, 'w', ZIP_DEFLATED) as z:
+        for source in files:
+            z.write(source, 'canopy/' + str(source.relative_to(root)))
+    os.replace(temporary, target)
+finally:
+    Path(temporary).unlink(missing_ok=True)
 (out / 'SHA256SUMS.txt').write_text(hashlib.sha256(target.read_bytes()).hexdigest() + '  canopy-local.zip\n')
 print(f'{target}: {target.stat().st_size:,} bytes')

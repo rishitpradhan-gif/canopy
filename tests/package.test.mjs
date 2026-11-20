@@ -9,5 +9,19 @@ test('release package excludes local diagnostics and hidden files while retainin
  const run=spawnSync('python3',[join(root,'scripts/package.py')],{encoding:'utf8'});assert.equal(run.status,0,run.stderr);
  const listing=spawnSync('python3',['-c','import json,sys,zipfile;print(json.dumps(zipfile.ZipFile(sys.argv[1]).namelist()))',join(root,'dist/downloads/canopy-local.zip')],{encoding:'utf8'});assert.equal(listing.status,0,listing.stderr);const names=JSON.parse(listing.stdout);
  assert(names.includes('canopy/docs/benchmark-full.json'));assert(names.includes('canopy/dist/index.html'));assert(!names.includes('canopy/docs/pipeline-status.json'));assert(!names.some(n=>n.includes('pipeline-failures')));assert(!names.some(n=>n.includes('.env')));assert(!names.some(n=>n.includes('aliased-')),'symbolic links must not reintroduce excluded files');
- const archive=join(root,'dist/downloads/canopy-local.zip'),before=await readFile(archive);await rm(join(root,'README.md'));await symlink(join(root,'docs/pipeline-failures/local.json'),join(root,'README.md'));const rejected=spawnSync('python3',[join(root,'scripts/package.py')],{encoding:'utf8'});assert.notEqual(rejected.status,0);assert.match(rejected.stderr,/regular file/);assert.deepEqual(await readFile(archive),before,'invalid required input must not truncate the last archive');
+ const archive=join(root,'dist/downloads/canopy-local.zip'),before=await readFile(archive);
+ const checksum=await readFile(join(root,'dist/downloads/SHA256SUMS.txt'));
+ const interrupted=spawnSync('python3',['-c',`import runpy,sys,zipfile
+original=zipfile.ZipFile.write
+count=0
+def fail(self,*args,**kwargs):
+ global count
+ count+=1
+ if count==2: raise OSError('synthetic archive write failure')
+ return original(self,*args,**kwargs)
+zipfile.ZipFile.write=fail
+runpy.run_path(sys.argv[1],run_name='__main__')`,join(root,'scripts/package.py')],{encoding:'utf8'});
+ assert.notEqual(interrupted.status,0);assert.match(interrupted.stderr,/synthetic archive write failure/);assert.deepEqual(await readFile(archive),before);assert.deepEqual(await readFile(join(root,'dist/downloads/SHA256SUMS.txt')),checksum);
+ const temporaryFiles=spawnSync('python3',['-c',`import pathlib,sys;print(len(list(pathlib.Path(sys.argv[1]).glob('.canopy-*'))))`,join(root,'dist/downloads')],{encoding:'utf8'});assert.equal(temporaryFiles.stdout.trim(),'0');
+await rm(join(root,'README.md'));await symlink(join(root,'docs/pipeline-failures/local.json'),join(root,'README.md'));const rejected=spawnSync('python3',[join(root,'scripts/package.py')],{encoding:'utf8'});assert.notEqual(rejected.status,0);assert.match(rejected.stderr,/regular file/);assert.deepEqual(await readFile(archive),before,'invalid required input must not truncate the last archive');
 });
