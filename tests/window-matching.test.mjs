@@ -8,3 +8,10 @@ test('input permutations preserve cardinality; emitted indexes address original 
 test('invalid settings, duplicate windows, and malformed cells reject',()=>{assert.throws(()=>matchWindows([w(0),w(0)],[]),/Duplicate/);for(const value of [-1,Infinity,NaN])assert.throws(()=>matchWindows([],[],{space_tolerance_m:value}),/Invalid/);assert.throws(()=>matchWindows([w(.5)],[]),/Invalid/);assert.throws(()=>matchWindows(Array(1001).fill(w(0)),[]),/1000/);assert.throws(()=>matchWindows([],Array(1)),/Invalid/);});
 test('small exhaustive assignment oracle confirms maximum cardinality',()=>{const cells=[w(0,0),w(0,1),w(1,0),w(1,1)];function brute(a,b,i=0,used=new Set()){if(i===a.length)return 0;let best=brute(a,b,i+1,used);for(let j=0;j<b.length;j++)if(!used.has(j)&&Math.hypot(a[i].cell[0]-b[j].cell[0],a[i].cell[1]-b[j].cell[1])<=1){const next=new Set(used);next.add(j);best=Math.max(best,1+brute(a,b,i+1,next));}return best;}for(let a=0;a<16;a++)for(let b=0;b<16;b++){const flags=cells.filter((_,i)=>a&(1<<i)),truth=cells.filter((_,i)=>b&(1<<i));assert.equal(matchWindows(flags,truth,{cell_m:1,space_tolerance_m:1}).tp,brute(flags,truth));}});
 test('zero tolerance reproduces the existing exact metric on all stress scenario types',async()=>{const {analyze,evaluate}=await import('../dist/core.mjs');const {stressRecording,physicalWindowTruth,STRESS_CASES}=await import('../research/stress-generator.mjs');for(const scenario of STRESS_CASES){const d=stressRecording({scenario,seed:1001}),truth=physicalWindowTruth(d),report=analyze(d),before=evaluate(report,truth),after=matchWindows(report.windows.filter(w=>w.detected),truth);assert.deepEqual([after.tp,after.fp,after.fn],[before.tp,before.fp,before.fn]);}});
+test('sparse cell coordinates reject on either matching side instead of becoming plausible misses',()=>{
+ for(const cell of [Array(2),[0,,],[,0]]){
+  const malformed={start_s:0,cell};
+  assert.throws(()=>matchWindows([malformed],[w(0)]),/Invalid detected window/);
+  assert.throws(()=>matchWindows([w(0)],[malformed]),/Invalid truth window/);
+ }
+});

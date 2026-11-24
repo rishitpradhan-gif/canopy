@@ -5,7 +5,7 @@ function validate(xs,name){
   if(!Array.isArray(xs)||xs.length>1000)throw Error(`${name} must contain at most 1000 windows`);
   const seen=new Set();
   return Array.from(xs,(w,index)=>{
-    if(!w||!Number.isFinite(w.start_s)||!Array.isArray(w.cell)||w.cell.length!==2||!w.cell.every(Number.isSafeInteger))throw Error(`Invalid ${name} window`);
+    if(!w||!Number.isFinite(w.start_s)||!Array.isArray(w.cell)||w.cell.length!==2||(!Number.isSafeInteger(w.cell[0])||!Number.isSafeInteger(w.cell[1])))throw Error(`Invalid ${name} window`);
     const key=JSON.stringify([w.start_s,...w.cell]);if(seen.has(key))throw Error(`Duplicate ${name} window`);seen.add(key);
     return {start_s:w.start_s,cell:[...w.cell],index};
   }).sort((a,b)=>a.start_s-b.start_s||a.cell[0]-b.cell[0]||a.cell[1]-b.cell[1]);
