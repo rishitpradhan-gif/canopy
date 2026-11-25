@@ -1,0 +1,7 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
+import {stressRecording,physicalWindowTruth,STRESS_CASES} from '../research/stress-generator.mjs';import {validateDataset,analyze} from '../dist/core.mjs';
+test('independent stress generator does not import the detector or its simulator',async()=>{const code=await readFile(new URL('../research/stress-generator.mjs',import.meta.url),'utf8');assert.doesNotMatch(code,/^import\s/m);});
+test('all independent fixtures satisfy the recording protocol and replay deterministically',()=>{for(const scenario of STRESS_CASES){const d=stressRecording({scenario});assert.ok(validateDataset(d).rows.length>1000);assert.deepEqual(d,stressRecording({scenario}));}});
+test('physical truth distinguishes sensor drift from an injected environmental contribution',()=>{assert.equal(physicalWindowTruth(stressRecording({scenario:'correlated-drift'})).length,0);assert.equal(physicalWindowTruth(stressRecording({scenario:'lagged-workload'})).length,0);assert.ok(physicalWindowTruth(stressRecording()).length>0);});
+test('packet loss cannot erase counterfactual physical ground truth',()=>{const full=stressRecording(),drop=stressRecording({scenario:'dropout-event'});assert.deepEqual(physicalWindowTruth(full),physicalWindowTruth(drop));assert.ok(drop.samples.length<drop.provenance.latent.length);});
+test('the detector never consumes synthetic ground truth metadata',()=>{const d=stressRecording();assert.deepEqual(analyze(d),analyze({schema:d.schema,samples:d.samples}));});

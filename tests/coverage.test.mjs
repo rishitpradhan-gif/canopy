@@ -1,0 +1,33 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {analyze} from '../dist/core.mjs';
+import {stressRecording,physicalWindowTruth} from '../research/stress-generator.mjs';import {expectedCoverage} from '../research/coverage.mjs';
+test('a silent cell stays in the denominator rather than disappearing into apparent full coverage',()=>{const d=stressRecording();d.samples=d.samples.filter(r=>r.t_s<120||r.x_m>=50);const r=analyze(d),c=expectedCoverage(r,d.provenance.latent,physicalWindowTruth(d));assert.equal(c.expected_windows,78);assert.equal(c.unreported_windows,26);assert.ok(c.eligible_fraction_expected<1);assert.equal(c.event_coverage,0);assert.equal(c.event_recall_all,0);assert.equal(c.event_recall_given_eligible,null);assert.equal(c.missed_while_eligible,0);assert.equal(c.event_windows_without_eligible_evidence,c.truth_windows);});
+test('fully rejected packets remain unknown rather than becoming normality claims',()=>{const d=stressRecording();for(const r of d.samples)if(r.t_s>=120)r.quality=0;const c=expectedCoverage(analyze(d),d.provenance.latent,physicalWindowTruth(d));assert.equal(c.eligible_windows,0);assert.equal(c.unreported_windows,c.expected_windows);assert.ok(c.states.every(s=>s.state==='unreported'));});
+test('received windows with too few eligible peers are distinguished from silence',()=>{const d=stressRecording();for(const r of d.samples)if(r.t_s>=120&&Number(r.device.slice(1))>2)r.quality=0;const c=expectedCoverage(analyze(d),d.provenance.latent,physicalWindowTruth(d));assert.ok(c.insufficient_reported_windows>0);assert.ok(c.unreported_windows>0);assert.equal(c.abstained_windows,c.expected_windows);});
+test('coverage partitions events and never inflates conditional recall with unobserved windows',()=>{const d=stressRecording({scenario:'dropout-event'}),c=expectedCoverage(analyze(d),d.provenance.latent,physicalWindowTruth(d));assert.equal(c.truth_windows,c.eligible_truth_windows+c.event_windows_without_eligible_evidence);assert.equal(c.expected_windows,c.eligible_windows+c.insufficient_reported_windows+c.unreported_windows);assert.ok(c.event_recall_all<=c.event_coverage);assert.equal(c.eligible_truth_windows,c.missed_while_eligible+c.states.filter(s=>s.truth_positive&&s.state==='flagged').length);});
+test('empty/no-event domains return null undefined rates instead of reassuring zeros',()=>{const d=stressRecording({scenario:'nonlinear-null'}),r=analyze(d),c=expectedCoverage(r,d.provenance.latent,[]);assert.equal(c.event_coverage,null);assert.equal(c.event_recall_all,null);assert.equal(c.event_recall_given_eligible,null);const e=expectedCoverage({...r,windows:[]},[],[]);assert.equal(e.eligible_fraction_expected,null);});
+test('inconsistent domains and duplicate scheduling records reject',()=>{const d=stressRecording(),r=analyze(d);assert.throws(()=>expectedCoverage(r,d.provenance.latent,[],{cell_m:25}),/cell size/);assert.throws(()=>expectedCoverage(r,[],[]),/outside expected/);assert.throws(()=>expectedCoverage(r,[...d.provenance.latent,d.provenance.latent[0]],[]),/Duplicate expected/);});
+
+// Deliberately forged report/domain pairs must not yield plausible coverage rates.
+const minimal=()=>({settings:{cell_m:50,window_s:30,min_peers:2},baseline:{end_s:120},windows:[{start_s:120,cell:[0,0],eligible:2,detected:true}]});
+const schedule=[{device:'a',t_s:120,cell:[0,0]},{device:'a',t_s:125,cell:[0,0]},{device:'b',t_s:120,cell:[0,0]}];
+test('eligibility is bounded by distinct scheduled devices, not packet count',()=>{const r=minimal();assert.equal(expectedCoverage(r,schedule,[]).eligible_windows,1);r.windows[0].eligible=3;assert.throws(()=>expectedCoverage(r,schedule,[]),/distinct devices/);});
+test('truthy strings cannot masquerade as detections',()=>{for(const detected of ['false',1,null,undefined]){const r=minimal();r.windows[0].detected=detected;assert.throws(()=>expectedCoverage(r,schedule,[]),/boolean/);}});
+test('invalid settings fail before denominator construction',()=>{for(const value of [0,-1,NaN,Infinity]){const r=minimal();r.settings.window_s=value;assert.throws(()=>expectedCoverage(r,schedule,[]),/settings/);}for(const value of [0,1.5,Infinity]){const r=minimal();r.settings.min_peers=value;assert.throws(()=>expectedCoverage(r,schedule,[]),/settings/);}assert.throws(()=>expectedCoverage(null,schedule,[]),/report/);});
+test('malformed coordinates and empty enrollment identities reject explicitly',()=>{const r=minimal();assert.throws(()=>expectedCoverage(r,[{...schedule[0],device:''}],[]),/slot/);for(const cell of [[0.5,0],[0],null])assert.throws(()=>expectedCoverage(r,schedule,[{start_s:120,cell}]),/coordinates/);assert.throws(()=>expectedCoverage(r,schedule,[null]),/coordinates/);});
+
+
+test('sparse coordinate pairs cannot manufacture an apparently covered domain',()=>{
+  for(const cell of [new Array(2),[,0],[0,,]]){
+    const r=minimal();r.windows[0].cell=cell;
+    const slots=schedule.map(s=>({...s,cell}));
+    assert.throws(()=>expectedCoverage(r,slots,[{start_s:120,cell}]),/slot|coordinates/);
+    assert.throws(()=>expectedCoverage(minimal(),schedule,[{start_s:120,cell}]),/coordinates/);
+    assert.throws(()=>expectedCoverage(r,schedule,[]),/coordinates/);
+  }
+});
+test('finite inputs that overflow window arithmetic fail instead of yielding invalid denominators',()=>{
+  const r=minimal();r.windows=[];r.baseline.end_s=-Number.MAX_VALUE;
+  assert.throws(()=>expectedCoverage(r,[{device:'a',t_s:Number.MAX_VALUE,cell:[0,0]}],[]),/window arithmetic/);
+  r.baseline.end_s=0;r.settings.window_s=Number.MIN_VALUE;
+  assert.throws(()=>expectedCoverage(r,[{device:'a',t_s:1,cell:[0,0]}],[]),/window arithmetic/);
+});
