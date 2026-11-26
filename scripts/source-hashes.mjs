@@ -10,3 +10,11 @@ export async function sourceHashes(files,{root=process.cwd()}={}){
   }
   return hashes;
 }
+
+// Detect persistent checkout drift across a run; this is not a signed snapshot.
+export async function verifySourceHashes(expected,options){
+  const current=await sourceHashes(Object.keys(expected),options);
+  for(const file of Object.keys(expected)){
+    if(current[file]!==expected[file])throw Error(`Source changed during evaluation: ${file}`);
+  }
+}
