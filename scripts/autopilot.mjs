@@ -2,7 +2,7 @@ import {spawnSync} from 'node:child_process';import {mkdir,writeFile,readdir} fr
 import {simulate,VERSION} from '../dist/core.mjs';import {challenge} from '../dist/evidence.mjs';
 await mkdir('docs',{recursive:true});
 const testFiles=(await readdir('tests')).filter(f=>f.endsWith('.test.mjs')).sort().map(f=>`tests/${f}`);
-const hashes=await sourceHashes(['package.json','dist/core.mjs','dist/evidence.mjs','scripts/autopilot.mjs','scripts/run-pipeline.mjs','scripts/tracked-run.mjs','scripts/source-hashes.mjs','scripts/stress-evaluate.mjs','research/stress-generator.mjs','research/coverage.mjs','research/window-matching.mjs',...testFiles]);
+const hashes=await sourceHashes(['package.json','dist/core.mjs','dist/evidence.mjs','scripts/autopilot.mjs','scripts/run-pipeline.mjs','scripts/tracked-run.mjs','scripts/source-hashes.mjs','scripts/stress-evaluate.mjs','research/stress-generator.mjs','research/coverage.mjs','research/window-matching.mjs','research/recording-summary.mjs',...testFiles]);
 const tests=spawnSync(process.execPath,['--test',...testFiles],{encoding:'utf8'});
 if(tests.status!==0){process.stderr.write(tests.stdout+tests.stderr);process.exit(1);}
 const records=[];for(const scenario of ['shared','workload','sensor','null','dropout','boundary','drift'])for(let seed=101;seed<=120;seed++){const r=challenge(simulate({scenario,seed}));records.push({scenario,seed,...r.summary,sensitive:r.candidates.filter(c=>c.classification==='sensitive-to-analysis-choices').length,unsupported_trials:r.trials.filter(t=>t.error).length});}

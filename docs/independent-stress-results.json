@@ -1,7 +1,7 @@
 {
   "schema": "canopy-independent-stress/3",
   "engine": "0.2.0",
-  "created_at": "2026-11-26T17:38:52.415Z",
+  "created_at": "2026-11-27T20:29:35.498Z",
   "node": "v22.17.1",
   "settings": {
     "baseline_s": 120,
@@ -17,7 +17,8 @@
     "research/stress-generator.mjs": "b1d01c0b1633865519adac4227ce4ea125627936c72bc260e7726436407225f6",
     "research/coverage.mjs": "ae43881c7959c7e792b41ad9683f1ad743d36aabf77368ef63101c337e3bd463",
     "research/window-matching.mjs": "15f87bb7e622a9611dac708545632928974162766b5dccfbdb69a94b5b7973bb",
-    "scripts/stress-evaluate.mjs": "a95b4d76258be5f3aacf48f9527c050e063ad54c8c173bce218cbd9bcdaad4a0"
+    "research/recording-summary.mjs": "779a2911d95bf78b884b580d5ccac1bf97c60030f172ba0c6c0675c915cf4e68",
+    "scripts/stress-evaluate.mjs": "dd09a81088cdd0776abb9cdd261d515c282e4a6114e54c6f3ecc2d6ade6154c7"
   },
   "seed_range": [
     1001,
@@ -27,6 +28,52 @@
     {
       "scenario": "nonlinear-null",
       "recordings": 20,
+      "recording_diagnostics": {
+        "recordings": 20,
+        "event_recordings": 0,
+        "no_event_recordings": 20,
+        "pooled_window_recall": null,
+        "macro_recording_recall": null,
+        "recordings_with_false_flags": 0,
+        "false_flags_per_recording": {
+          "median": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "worst_recordings": [
+          {
+            "seed": 1001,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "seed": 1002,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "seed": 1003,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "seed": 1004,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          {
+            "seed": 1005,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          }
+        ],
+        "limitation": "Descriptive summaries of supplied synthetic recordings. Quantiles use nearest rank; macro recall excludes recordings with no constructed truth windows. Pooled recall weights windows, macro recall weights event-containing recordings equally. Worst cases sort by false flags, then misses, then seed. These are not confidence intervals, held-out performance or physical validation."
+      },
       "tp": 0,
       "fp": 0,
       "fn": 0,
@@ -35,6 +82,52 @@
     {
       "scenario": "lagged-workload",
       "recordings": 20,
+      "recording_diagnostics": {
+        "recordings": 20,
+        "event_recordings": 0,
+        "no_event_recordings": 20,
+        "pooled_window_recall": null,
+        "macro_recording_recall": null,
+        "recordings_with_false_flags": 9,
+        "false_flags_per_recording": {
+          "median": 0,
+          "p95": 2,
+          "max": 2
+        },
+        "worst_recordings": [
+          {
+            "seed": 1010,
+            "tp": 0,
+            "fp": 2,
+            "fn": 0
+          },
+          {
+            "seed": 1012,
+            "tp": 0,
+            "fp": 2,
+            "fn": 0
+          },
+          {
+            "seed": 1020,
+            "tp": 0,
+            "fp": 2,
+            "fn": 0
+          },
+          {
+            "seed": 1003,
+            "tp": 0,
+            "fp": 1,
+            "fn": 0
+          },
+          {
+            "seed": 1005,
+            "tp": 0,
+            "fp": 1,
+            "fn": 0
+          }
+        ],
+        "limitation": "Descriptive summaries of supplied synthetic recordings. Quantiles use nearest rank; macro recall excludes recordings with no constructed truth windows. Pooled recall weights windows, macro recall weights event-containing recordings equally. Worst cases sort by false flags, then misses, then seed. These are not confidence intervals, held-out performance or physical validation."
+      },
       "tp": 0,
       "fp": 12,
       "fn": 0,
@@ -43,6 +136,52 @@
     {
       "scenario": "shared-event",
       "recordings": 20,
+      "recording_diagnostics": {
+        "recordings": 20,
+        "event_recordings": 20,
+        "no_event_recordings": 0,
+        "pooled_window_recall": 0.5357142857142857,
+        "macro_recording_recall": 0.5357142857142856,
+        "recordings_with_false_flags": 0,
+        "false_flags_per_recording": {
+          "median": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "worst_recordings": [
+          {
+            "seed": 1011,
+            "tp": 2,
+            "fp": 0,
+            "fn": 5
+          },
+          {
+            "seed": 1002,
+            "tp": 3,
+            "fp": 0,
+            "fn": 4
+          },
+          {
+            "seed": 1009,
+            "tp": 3,
+            "fp": 0,
+            "fn": 4
+          },
+          {
+            "seed": 1018,
+            "tp": 3,
+            "fp": 0,
+            "fn": 4
+          },
+          {
+            "seed": 1001,
+            "tp": 4,
+            "fp": 0,
+            "fn": 3
+          }
+        ],
+        "limitation": "Descriptive summaries of supplied synthetic recordings. Quantiles use nearest rank; macro recall excludes recordings with no constructed truth windows. Pooled recall weights windows, macro recall weights event-containing recordings equally. Worst cases sort by false flags, then misses, then seed. These are not confidence intervals, held-out performance or physical validation."
+      },
       "tp": 75,
       "fp": 0,
       "fn": 65,
@@ -51,6 +190,52 @@
     {
       "scenario": "correlated-drift",
       "recordings": 20,
+      "recording_diagnostics": {
+        "recordings": 20,
+        "event_recordings": 0,
+        "no_event_recordings": 20,
+        "pooled_window_recall": null,
+        "macro_recording_recall": null,
+        "recordings_with_false_flags": 20,
+        "false_flags_per_recording": {
+          "median": 11,
+          "p95": 14,
+          "max": 14
+        },
+        "worst_recordings": [
+          {
+            "seed": 1001,
+            "tp": 0,
+            "fp": 14,
+            "fn": 0
+          },
+          {
+            "seed": 1010,
+            "tp": 0,
+            "fp": 14,
+            "fn": 0
+          },
+          {
+            "seed": 1013,
+            "tp": 0,
+            "fp": 14,
+            "fn": 0
+          },
+          {
+            "seed": 1006,
+            "tp": 0,
+            "fp": 13,
+            "fn": 0
+          },
+          {
+            "seed": 1017,
+            "tp": 0,
+            "fp": 13,
+            "fn": 0
+          }
+        ],
+        "limitation": "Descriptive summaries of supplied synthetic recordings. Quantiles use nearest rank; macro recall excludes recordings with no constructed truth windows. Pooled recall weights windows, macro recall weights event-containing recordings equally. Worst cases sort by false flags, then misses, then seed. These are not confidence intervals, held-out performance or physical validation."
+      },
       "tp": 0,
       "fp": 229,
       "fn": 0,
@@ -59,6 +244,52 @@
     {
       "scenario": "dropout-event",
       "recordings": 20,
+      "recording_diagnostics": {
+        "recordings": 20,
+        "event_recordings": 20,
+        "no_event_recordings": 0,
+        "pooled_window_recall": 0.42142857142857143,
+        "macro_recording_recall": 0.42142857142857154,
+        "recordings_with_false_flags": 0,
+        "false_flags_per_recording": {
+          "median": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "worst_recordings": [
+          {
+            "seed": 1011,
+            "tp": 1,
+            "fp": 0,
+            "fn": 6
+          },
+          {
+            "seed": 1014,
+            "tp": 1,
+            "fp": 0,
+            "fn": 6
+          },
+          {
+            "seed": 1018,
+            "tp": 1,
+            "fp": 0,
+            "fn": 6
+          },
+          {
+            "seed": 1001,
+            "tp": 2,
+            "fp": 0,
+            "fn": 5
+          },
+          {
+            "seed": 1003,
+            "tp": 2,
+            "fp": 0,
+            "fn": 5
+          }
+        ],
+        "limitation": "Descriptive summaries of supplied synthetic recordings. Quantiles use nearest rank; macro recall excludes recordings with no constructed truth windows. Pooled recall weights windows, macro recall weights event-containing recordings equally. Worst cases sort by false flags, then misses, then seed. These are not confidence intervals, held-out performance or physical validation."
+      },
       "tp": 59,
       "fp": 0,
       "fn": 81,
